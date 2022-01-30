@@ -1,0 +1,45 @@
+﻿@page
+@model Sas_Bogdan_Proiect.Pages.Stocuri.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Magazin</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Magazin.ID" />
+            <div class="form-group">
+                <label asp-for="Magazin.JocID" class="control-label"></label>
+                <select asp-for="Magazin.JocID" class="form-control" asp-items="ViewBag.JocID"></select>
+                <span asp-validation-for="Magazin.JocID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Magazin.Pret" class="control-label"></label>
+                <input asp-for="Magazin.Pret" class="form-control" />
+                <span asp-validation-for="Magazin.Pret" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Magazin.Data" class="control-label"></label>
+                <input asp-for="Magazin.Data" class="form-control" />
+                <span asp-validation-for="Magazin.Data" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

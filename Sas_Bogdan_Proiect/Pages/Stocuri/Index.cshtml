@@ -1,0 +1,48 @@
+﻿@page "/"
+@model Sas_Bogdan_Proiect.Pages.Stocuri.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Stoc Jocuri</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Magazin[0].Joc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Magazin[0].Pret)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Magazin[0].Data)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Magazin) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Joc.Nume)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pret)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Data)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
